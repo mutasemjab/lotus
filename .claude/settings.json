@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\xampp\\\\htdocs\\\\lotus\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(dir \"c:\\\\xampp\\\\htdocs\\\\lotus\\\\app\")",
+      "Bash(dir \"c:\\\\xampp\\\\htdocs\\\\lotus\\\\database\")",
+      "Bash(dir \"c:\\\\xampp\\\\htdocs\\\\lotus\\\\resources\")",
+      "Bash(Get-Item \"c:\\\\xampp\\\\htdocs\\\\lotus\\\\resources\\\\views\\\\front\\\\includes\\\\navbar.blade.php\")",
+      "Bash(Select-Object Length)"
+    ]
+  }
+}
