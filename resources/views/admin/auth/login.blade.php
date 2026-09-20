@@ -7,22 +7,22 @@
     <title>{{ __('messages.admin_login_title') }} — Lotus</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'IBM Plex Sans', 'Cairo', -apple-system, sans-serif;
             min-height: 100vh;
             display: flex;
-            background: #f1f5f9;
+            background: #F6F4EC;
         }
 
         /* ── Left Panel ── */
         .l-panel {
             flex: 0 0 45%;
-            background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 50%, #1d4ed8 100%);
+            background: linear-gradient(145deg, #0E1B3A 0%, #132552 55%, #182c60 100%);
             padding: 48px;
             display: flex;
             flex-direction: column;
@@ -70,7 +70,7 @@
             color: #fff;
             letter-spacing: -.02em;
         }
-        .l-brand-name span { color: #93c5fd; }
+        .l-brand-name span { color: #E4BE6B; }
 
         .l-hero { position: relative; z-index: 1; }
 
@@ -84,7 +84,7 @@
             padding: 5px 14px;
             font-size: .75rem;
             font-weight: 600;
-            color: #bfdbfe;
+            color: #E4BE6B;
             margin-bottom: 20px;
         }
 
@@ -96,7 +96,7 @@
             letter-spacing: -.03em;
             margin-bottom: 12px;
         }
-        .l-title span { color: #93c5fd; }
+        .l-title span { color: #E4BE6B; }
 
         .l-subtitle {
             font-size: .9rem;
@@ -164,6 +164,21 @@
             max-width: 400px;
         }
 
+        .lang-switch {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: .8rem;
+            font-weight: 600;
+            color: #0E1B3A;
+            text-decoration: none;
+            border: 1px solid rgba(14,27,58,.14);
+            border-radius: 20px;
+            padding: 5px 14px;
+            background: #fff;
+        }
+        .lang-switch:hover { border-color: #C79A3C; }
+        .r-lang { text-align: end; }
+
         .r-header { margin-bottom: 32px; }
         .r-eyebrow {
             display: flex;
@@ -171,18 +186,18 @@
             gap: 8px;
             font-size: .78rem;
             font-weight: 600;
-            color: #2563eb;
+            color: #8a6a1f;
             text-transform: uppercase;
             letter-spacing: .08em;
             margin-bottom: 10px;
         }
         .r-eyebrow .dot {
             width: 6px; height: 6px;
-            background: #2563eb;
+            background: #C79A3C;
             border-radius: 50%;
         }
-        .r-title { font-size: 1.6rem; font-weight: 800; color: #0f172a; letter-spacing: -.03em; }
-        .r-sub   { font-size: .855rem; color: #64748b; margin-top: 6px; }
+        .r-title { font-size: 1.6rem; font-weight: 800; color: #0E1B3A; letter-spacing: -.03em; }
+        .r-sub   { font-size: .855rem; color: rgba(14,27,58,.7); margin-top: 6px; }
 
         /* Alert */
         .alert-err {
@@ -221,7 +236,7 @@
         .form-input {
             width: 100%;
             padding: 11px 14px 11px 42px;
-            border: 1.5px solid #e5e7eb;
+            border: 1.5px solid rgba(14,27,58,.14);
             border-radius: 10px;
             font-size: .875rem;
             font-family: inherit;
@@ -232,8 +247,8 @@
         }
         .form-input::placeholder { color: #9ca3af; }
         .form-input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+            border-color: #C79A3C;
+            box-shadow: 0 0 0 3px rgba(199,154,60,.22);
         }
         .form-input.is-invalid { border-color: #ef4444; }
         .form-input.is-invalid:focus { box-shadow: 0 0 0 3px rgba(239,68,68,.12); }
@@ -251,7 +266,7 @@
             font-size: .95rem;
             padding: 2px;
         }
-        .pw-toggle:hover { color: #2563eb; }
+        .pw-toggle:hover { color: #C79A3C; }
 
         .invalid-feedback { font-size: .78rem; color: #ef4444; margin-top: 5px; display: block; }
 
@@ -264,7 +279,7 @@
         .form-check input[type="checkbox"] {
             width: 16px; height: 16px;
             border-radius: 4px;
-            accent-color: #2563eb;
+            accent-color: #C79A3C;
             cursor: pointer;
         }
         .form-check label {
@@ -276,8 +291,8 @@
         .btn-login {
             width: 100%;
             padding: 12px;
-            background: #2563eb;
-            color: #fff;
+            background: #C79A3C;
+            color: #0E1B3A;
             border: none;
             border-radius: 10px;
             font-size: .9rem;
@@ -292,8 +307,8 @@
             letter-spacing: -.01em;
         }
         .btn-login:hover {
-            background: #1d4ed8;
-            box-shadow: 0 4px 14px rgba(37,99,235,.4);
+            background: #b3872c;
+            box-shadow: 0 4px 14px rgba(199,154,60,.4);
             transform: translateY(-1px);
         }
         .btn-login:active { transform: translateY(0); box-shadow: none; }
@@ -304,7 +319,7 @@
             font-size: .78rem;
             color: #9ca3af;
         }
-        .r-footer a { color: #2563eb; font-weight: 500; text-decoration: none; }
+        .r-footer a { color: #8a6a1f; font-weight: 500; text-decoration: none; }
 
         /* Responsive */
         @media (max-width: 900px) { .l-panel { flex: 0 0 40%; padding: 36px 32px; } }
@@ -315,6 +330,7 @@
         }
 
         @if($dir === 'rtl')
+        body { font-family: 'Cairo', 'IBM Plex Sans', sans-serif; }
         .input-icon { left: auto; right: 14px; }
         .form-input { padding: 11px 42px 11px 14px; }
         .pw-toggle { right: auto; left: 14px; }
@@ -382,6 +398,13 @@
 <div class="r-panel">
     <div class="r-wrap">
 
+        @php $otherLocale = app()->getLocale() === 'ar' ? 'en' : 'ar'; @endphp
+        <div class="r-lang">
+            <a class="lang-switch" href="{{ LaravelLocalization::getLocalizedURL($otherLocale, null, [], true) }}">
+                <i class="bi bi-translate"></i> {{ __('messages.switch_language') }}
+            </a>
+        </div>
+
         <div class="r-header">
             <div class="r-eyebrow">
                 <span class="dot"></span> {{ __('messages.secure_access') }}
@@ -435,7 +458,7 @@
                         placeholder="{{ __('messages.password_ph') }}"
                         required
                     >
-                    <button type="button" class="pw-toggle" id="pwToggle" aria-label="Toggle password">
+                    <button type="button" class="pw-toggle" id="pwToggle" aria-label="{{ __('messages.toggle_password') }}">
                         <i class="bi bi-eye" id="pwIcon"></i>
                     </button>
                 </div>
