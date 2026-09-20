@@ -16,10 +16,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            AppleTransactionVerifier::class,
-            AppleSignedTransactionVerifier::class
-        );
     }
 
     /**
