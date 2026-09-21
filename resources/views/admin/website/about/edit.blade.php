@@ -73,7 +73,7 @@
                         <label class="form-label">Section Image</label>
                         @if($about->image)
                             <div class="mb-2">
-                                <img src="{{ asset('uploads/about/' . $about->image) }}" alt="" style="height:80px;object-fit:cover;border-radius:6px;">
+                                <img src="{{ asset('assets/uploads/about/' . $about->image) }}" alt="" style="height:80px;object-fit:cover;border-radius:6px;">
                             </div>
                         @endif
                         <input type="file" name="image" class="form-control" accept="image/*">

@@ -34,7 +34,7 @@ class AboutSectionController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = uploadImage('public/uploads/about', $request->file('image'));
+            $data['image'] = uploadImage('assets/uploads/about', $request->file('image'));
         } else {
             unset($data['image']);
         }
