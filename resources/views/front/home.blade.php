@@ -53,7 +53,7 @@
     <div class="container">
       <div class="about-media">
         @if($about->image)
-          <img src="{{ asset('uploads/about/' . $about->image) }}" alt="{{ $about->field('title') }}">
+          <img src="{{ asset('assets/uploads/about/' . $about->image) }}" alt="{{ $about->field('title') }}">
         @else
           <img src="https://images.unsplash.com/photo-1740914994657-f1cdffdc418e?fm=jpg&q=80&w=1400&auto=format&fit=crop" alt="Warehouse operations">
         @endif
