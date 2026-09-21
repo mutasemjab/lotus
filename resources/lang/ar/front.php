@@ -30,4 +30,8 @@ return [
     // Footer
     'footer_rights' => 'جميع الحقوق محفوظة.',
 
+    // Global sections (content itself is managed in the admin panel)
+    'stats_label'   => 'أرقامنا',
+    'discover_more' => 'اكتشف المزيد',
+
 ];

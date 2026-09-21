@@ -47,3 +47,26 @@
     });
   }, {threshold:.5});
   if(timeline) timelineObserver.observe(timeline);
+
+  // stats band: count numbers up once when scrolled into view
+  const countEls = document.querySelectorAll('.js-count');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const countObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      countObserver.unobserve(e.target);
+      const el = e.target;
+      const end = parseInt(el.dataset.count, 10) || 0;
+      if(reduceMotion){ el.textContent = end.toLocaleString('en-US'); return; }
+      const duration = 1600;
+      const start = performance.now();
+      const tick = (now)=>{
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(end * eased).toLocaleString('en-US');
+        if(p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, {threshold:.6});
+  countEls.forEach(el=>countObserver.observe(el));

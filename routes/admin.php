@@ -6,10 +6,13 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\MapCountryController;
 use App\Http\Controllers\Admin\MarqueeItemController;
 use App\Http\Controllers\Admin\ProcessStepController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ShippingController;
+use App\Http\Controllers\Admin\SiteStatController;
 use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\TrustItemController;
 use Illuminate\Support\Facades\Route;
@@ -60,8 +63,33 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::put('website/about/stat/{stat}',                  [AboutSectionController::class, 'updateStat'])->name('admin.website.about.stat.update');
         Route::delete('website/about/stat/{stat}',               [AboutSectionController::class, 'destroyStat'])->name('admin.website.about.stat.destroy');
 
+        // Statistics band
+        Route::get('website/stats',                              [SiteStatController::class, 'index'])->name('admin.website.stats.index');
+        Route::post('website/stats',                             [SiteStatController::class, 'store'])->name('admin.website.stats.store');
+        Route::put('website/stats/{stat}',                       [SiteStatController::class, 'update'])->name('admin.website.stats.update');
+        Route::delete('website/stats/{stat}',                    [SiteStatController::class, 'destroy'])->name('admin.website.stats.destroy');
+
+        // World map (countries)
+        Route::get('website/map',                                [MapCountryController::class, 'index'])->name('admin.website.map.index');
+        Route::put('website/map/header',                         [MapCountryController::class, 'updateHeader'])->name('admin.website.map.update-header');
+        Route::post('website/map',                               [MapCountryController::class, 'store'])->name('admin.website.map.store');
+        Route::put('website/map/{country}',                      [MapCountryController::class, 'update'])->name('admin.website.map.update');
+        Route::delete('website/map/{country}',                   [MapCountryController::class, 'destroy'])->name('admin.website.map.destroy');
+
+        // Shipping solutions
+        Route::get('website/shipping',                           [ShippingController::class, 'index'])->name('admin.website.shipping.index');
+        Route::put('website/shipping/header',                    [ShippingController::class, 'updateHeader'])->name('admin.website.shipping.update-header');
+        Route::get('website/shipping/create',                    [ShippingController::class, 'create'])->name('admin.website.shipping.create');
+        Route::post('website/shipping',                          [ShippingController::class, 'store'])->name('admin.website.shipping.store');
+        Route::get('website/shipping/{mode}/edit',               [ShippingController::class, 'edit'])->name('admin.website.shipping.edit');
+        Route::put('website/shipping/{mode}',                    [ShippingController::class, 'update'])->name('admin.website.shipping.update');
+        Route::delete('website/shipping/{mode}',                 [ShippingController::class, 'destroy'])->name('admin.website.shipping.destroy');
+        Route::post('website/shipping/{mode}/routes',            [ShippingController::class, 'storeRoute'])->name('admin.website.shipping.route.store');
+        Route::put('website/shipping/{mode}/routes/{route}',     [ShippingController::class, 'updateRoute'])->name('admin.website.shipping.route.update');
+        Route::delete('website/shipping/{mode}/routes/{route}',  [ShippingController::class, 'destroyRoute'])->name('admin.website.shipping.route.destroy');
+
         // Services
-        Route::get('website/services',                           [ServiceController::class, 'index'])->name('admin.website.services.index');
+        Route::get('website/services',                          [ServiceController::class, 'index'])->name('admin.website.services.index');
         Route::put('website/services/header',                    [ServiceController::class, 'updateHeader'])->name('admin.website.services.update-header');
         Route::get('website/services/create',                    [ServiceController::class, 'create'])->name('admin.website.services.create');
         Route::post('website/services',                          [ServiceController::class, 'store'])->name('admin.website.services.store');

@@ -45,6 +45,9 @@
     </div>
   </div>
 
+  <!-- STATS -->
+  @include('front.sections.stats')
+
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="container">
@@ -119,6 +122,12 @@
       </div>
     </div>
   </section>
+
+  <!-- WORLD MAP -->
+  @include('front.sections.world-map')
+
+  <!-- SHIPPING SOLUTIONS -->
+  @include('front.sections.shipping')
 
   <!-- PROCESS -->
   <section class="process" id="process">

@@ -7,11 +7,14 @@ use App\Models\AboutStat;
 use App\Models\ContactLocation;
 use App\Models\ContactPhone;
 use App\Models\HeroSection;
+use App\Models\MapCountry;
 use App\Models\MarqueeItem;
 use App\Models\ProcessStep;
 use App\Models\SectionHeader;
 use App\Models\Service;
+use App\Models\ShippingMode;
 use App\Models\SiteSetting;
+use App\Models\SiteStat;
 use App\Models\TeamMember;
 use App\Models\TrustItem;
 use Illuminate\Http\Request;
@@ -37,7 +40,14 @@ class HomeController extends Controller
         $location      = ContactLocation::current();
         $whatsapp      = SiteSetting::get('whatsapp_number', '962785171895');
 
+        $siteStats      = SiteStat::active()->get();
+        $mapHeader      = SectionHeader::forSection('map');
+        $mapCountries   = MapCountry::active()->get();
+        $shippingHeader = SectionHeader::forSection('shipping');
+        $shippingModes  = ShippingMode::active()->with('routes')->get();
+
         return view('front.home', compact(
+            'siteStats', 'mapHeader', 'mapCountries', 'shippingHeader', 'shippingModes',
             'hero', 'marqueeItems',
             'about', 'aboutStats',
             'servicesHeader', 'services',

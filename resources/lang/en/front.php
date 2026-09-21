@@ -30,4 +30,8 @@ return [
     // Footer
     'footer_rights' => 'All rights reserved.',
 
+    // Global sections (content itself is managed in the admin panel)
+    'stats_label'   => 'Our numbers',
+    'discover_more' => 'Discover more',
+
 ];

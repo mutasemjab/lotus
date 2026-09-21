@@ -42,6 +42,13 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.website.stats.index') }}"
+                   class="nav-link {{ request()->routeIs('admin.website.stats.*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-bar-chart-line"></i>
+                    <span>Statistics Band</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.website.about.edit') }}"
                    class="nav-link {{ request()->routeIs('admin.website.about.*') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-info-circle"></i>
@@ -53,6 +60,20 @@
                    class="nav-link {{ request()->routeIs('admin.website.services.*') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-grid-3x2-gap"></i>
                     <span>Services</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.website.map.index') }}"
+                   class="nav-link {{ request()->routeIs('admin.website.map.*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-globe-europe-africa"></i>
+                    <span>World Map</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.website.shipping.index') }}"
+                   class="nav-link {{ request()->routeIs('admin.website.shipping.*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-truck"></i>
+                    <span>Shipping Solutions</span>
                 </a>
             </li>
             <li class="nav-item">
